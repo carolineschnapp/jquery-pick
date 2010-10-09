@@ -17,6 +17,13 @@
  *  The above will randomly pick 6 elements from the wrapped set, and
  *  remove others from the document.
  *
+ *  What is returned is the wrapped set of picked elements.
+ *  The removed elements are no longer in that set.
+ *
+ *  Ex:
+ *
+ *  var how_many = jQuery('#gallery li').pick(6).size(); // Will return 6.
+ *
  */
 
 (function( $ ){
@@ -42,6 +49,13 @@
        if ($.inArray(i,new_index_array) === -1) {
           $(this).remove();
        }
+    }).filter(function() {
+      if (this.parentNode === null) {
+        return false;
+      }
+      else {
+        return true;
+      }
     });
 
   };
