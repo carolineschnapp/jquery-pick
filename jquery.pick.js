@@ -45,6 +45,7 @@
     };
     var new_index_array = shuffle(index_array).slice(0,how_many);
     
+    // Ditching unpicked elements and removing those from the returned set.
     return this.each(function(i) {
        if ($.inArray(i,new_index_array) === -1) {
           $(this).remove();
